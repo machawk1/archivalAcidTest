@@ -24,16 +24,18 @@
  div {width: 100px;}
  img, canvas {width: 10px; height: 10px; margin: 0 1px 1px 0; padding: 0; display: block; float: left;}
  
- iframe {padding: 0;}
+ iframe {padding: 0; margin: 0; border: 0;}
  h1 {margin-bottom: 0; padding-bottom: 0;}
  h2, h3, h4, p {margin: 0; padding: 0; clear: both;}
  h2 {margin-top: 1.0em;}
  ul {margin: 0.5em auto; padding-top: 0; list-style-type: none;}
+ video {margin: 0; padding: 0; float: left; border: 0;}
  
  div {height: 10px; border: 1px solid black; padding: 1px 0 1px 1px;}
  div#test1 {width: 66px;}
  div#scriptParent {width: 88px;}
- div#html5Parent {width: 22px;}
+ div#html5Parent {width: 44px;}
+ iframe#test3c {padding-right: 1px; margin: 0; float: left;}
  
  p#test2iHeightAssurance {margin-top: 2000px;}
  p {margin-bottom: 1.0em;}
@@ -73,8 +75,7 @@ MzZGQjU2MDBDNDNBMUYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l
 dGE+IDw/eHBhY2tldCBlbmQ9InIiPz5pvSZLAAAADklEQVR42mJmYPgPEGAAAQ8BA8CY0HcAAAAA
 SUVORK5CYII=" title="test1d" />
 <!--Test 1e, Scheme-less resource --><img src="//acid.matkelly.com/pixel.png" title="test1e" />
-<!--TODO: Test 1f, Recursively included CSS -->
-<img src="transparent_1f.png" title="test1f" class="onef" id="onef" />
+<!--Test 1f, Recursively included CSS --><img src="transparent_1f.png" title="test1f" class="onef" id="onef" />
 </div>
 
 <h3>Javascript (8 tests)</h3>
@@ -87,6 +88,7 @@ SUVORK5CYII=" title="test1d" />
 document.addEventListener('DOMContentLoaded',function(){
 	var inlineScriptImage = new Image();
 	inlineScriptImage.src = "pixel.png";
+	inlineScriptImage.title = "test2c";
 	var scriptParent = document.getElementById('scriptParent');
 	scriptParent.appendChild(inlineScriptImage);	
 });
@@ -97,6 +99,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var test2DImageRed = new Image();
 	test2DImageRed.src = "red.png";
 	test2DImageRed.id = "test2d";
+	test2DImageRed.title = "test2d";
 	var scriptParent = document.getElementById('scriptParent');
 	scriptParent.appendChild(test2DImageRed);	
 	
@@ -118,6 +121,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var test2EImageBlue = new Image();
 	test2EImageBlue.src = "pixel.png";
 	test2EImageBlue.id = "test2e";
+	test2EImageBlue.title = "test2e";
 	var scriptParent = document.getElementById('scriptParent');
 	scriptParent.appendChild(test2EImageBlue);	
 	
@@ -145,6 +149,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var test2GImageRed = new Image();
 	test2GImageRed.src = "red.png";
 	test2GImageRed.id = "test2g";
+	test2GImageRed.title = "test2g";
 	var scriptParent = document.getElementById('scriptParent');
 	scriptParent.appendChild(test2GImageRed);
 	
@@ -162,6 +167,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var test2HIframeBlue = document.createElement('iframe');
 	test2HIframeBlue.src = "pixel.png";
 	test2HIframeBlue.id = "test2h";
+	test2HIframeBlue.title = "test2h";
 	var scriptParent = document.getElementById('scriptParent');
 	//scriptParent.appendChild(test13ImageBlue);	
 	//scriptParent.appendChild(test13IframeBlue);	
@@ -193,6 +199,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var test2JImageRed = document.createElement('img');
 	test2JImageRed.src = "transparent_2j.png";
 	test2JImageRed.id = "test2j";
+	test2JImageRed.title = "test2j";
 	
 	var scriptParent = document.getElementById('scriptParent');
 	scriptParent.appendChild(test2JImageRed);
@@ -217,7 +224,7 @@ document.addEventListener('DOMContentLoaded',function(){
 </script>
 </div>
 
-<h3>HTML5 Features (2 tests)</h3>
+<h3>Advanced Features Tests (4 tests)</h3>
 <div id="html5Parent">
 <script type="text/javascript" id="test3Ascript">
 
@@ -228,6 +235,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	test3Acanvas.width = "10";
 	test3Acanvas.height = "10";
 	test3Acanvas.id = "test3a";
+	test3Acanvas.title = "test3a";
 	var scriptParent = document.getElementById('html5Parent');
 	scriptParent.replaceChild(test3Acanvas,document.getElementById('test3Ascript'));	
 	
@@ -245,6 +253,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var test3BImageRed = new Image();
 	test3BImageRed.src = "red.png";
 	test3BImageRed.id = "test3b";
+	test3BImageRed.title = "test3b";
 	var scriptParent = document.getElementById('html5Parent');
 	scriptParent.appendChild(test3BImageRed);	
 	
@@ -253,8 +262,42 @@ document.addEventListener('DOMContentLoaded',function(){
 	
 });
 
+//Test 3c: Embedded web page (iframe)
+document.addEventListener('DOMContentLoaded',function(){
+	var test3CIFrameElement = document.createElement("iframe");
+	test3CIFrameElement.id = "test3c";
+	test3CIFrameElement.width = "10";
+	test3CIFrameElement.height = "10";
+	test3CIFrameElement.src = "3c.html";
+	test3CIFrameElement.title = "test3c";
+		
+	var scriptParent = document.getElementById('html5Parent');
+	scriptParent.appendChild(test3CIFrameElement);	
+});
+
+//Test 3f: HTML5 Multimedia
+document.addEventListener('DOMContentLoaded',function(){
+	var test3FVideoElement = document.createElement("video");
+	test3FVideoElement.id = "test3f";
+	test3FVideoElement.width = "10";
+	test3FVideoElement.height = "10";
+	test3FVideoElement.autoplay = "autoplay";
+	test3FVideoElement.title = "test3f";
+	
+	var test3FSourceElement = document.createElement("source");
+	test3FSourceElement.src = "pixel_3f.mp4";
+	test3FSourceElement.type = "video/mp4";
+	
+	test3FVideoElement.appendChild(test3FSourceElement);
+	
+	var scriptParent = document.getElementById('html5Parent');
+	scriptParent.appendChild(test3FVideoElement);	
+});
+
 
 </script>
+
+
 </div>
 
 
@@ -317,7 +360,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <li>3c - Exernal Webpage <span>(not implemented)</span></li>
 <li>3d - XSS Allowed <span>(not implemented)</span></li>
 <li>3e - XSS Disallowed <span>(not implemented)</span></li>
-<li>3f - Embedded Objects <span>(not implemented)</span></li>
+<li>3f - Embedded Objects (HTML5 video)</li>
 </ul>
 
 <p id="test2iHeightAssurance">&nbsp;</p>
