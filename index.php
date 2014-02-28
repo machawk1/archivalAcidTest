@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <ul>
 <li>3a - HTML5 Canvas Drawing</li>
 <li>3b - LocalStorage</li>
-<li>3c - Exernal Webpage <span>(not implemented)</span></li>
+<li>3c - External Webpage</li>
 <li>3d - XSS Allowed <span>(not implemented)</span></li>
 <li>3e - XSS Disallowed <span>(not implemented)</span></li>
 <li>3f - Embedded Objects (HTML5 video)</li>
