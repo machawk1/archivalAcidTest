@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var test2IImageRed = new Image();
 	test2IImageRed.src = "red.png";
 	test2IImageRed.id = "test2i";
-	test2IImageRed.title = "2i";
+	test2IImageRed.title = "test2i";
 	var scriptParent = document.getElementById('scriptParent');
 	scriptParent.appendChild(test2IImageRed);
 	window.onscroll = function(oEvent){
